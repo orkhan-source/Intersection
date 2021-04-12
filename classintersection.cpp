@@ -1,9 +1,6 @@
 #include <iostream>
 #include <windows.h>
-/*
-Windows ta #include <windows.h> sonra Sleep(milliseconds)
-Unix te #inlcude <unistd.h> sonra usleep(microsecond)
-*/
+
 using namespace std;
 
 class Light
@@ -18,7 +15,6 @@ public:
 
 Light::Light()
 {
-    //Baslangicta sonuk
     open = false;
 }
 
@@ -46,7 +42,7 @@ public:
 
 TrafficLight::TrafficLight()
 {
-    //Baslangicta kirmizi yaniyor
+    //Red is open 
     red.toggle();
 }
 
@@ -79,7 +75,6 @@ Intersection::Intersection(size_t greenDuration)
 {
     safetyDuration = 1;
     this->greenDuration = greenDuration;
-    // Baslangicta 0 ve 2 de yesil, 1 ve 3 de kirmizi yanacak 
     trafficLights[0].switchLights();
     trafficLights[2].switchLights();
 }
@@ -87,7 +82,7 @@ Intersection::Intersection(size_t greenDuration)
 
 void Intersection::switchTrafficLights()
 {
-    //Once yesiller kirmizi olsun, bir sure bekledikten sonra kirmizilar yesil olsun
+    
     if(trafficLights[0].isGreen())
     {
         trafficLights[0].switchLights();
